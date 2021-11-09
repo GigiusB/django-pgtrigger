@@ -1105,7 +1105,7 @@ def install_ignore_func(database=None):
         with connections[database].cursor() as cursor:
             cursor.execute(
                 '''
-                CREATE OR REPLACE FUNCTION _pgtrigger_should_ignore(
+                CREATE OR REPLACE FUNCTION ''' + ((database + '.') if database else '') + '''_pgtrigger_should_ignore(
                     table_name NAME,
                     trigger_name NAME
                 )
